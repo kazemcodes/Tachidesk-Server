@@ -11,6 +11,8 @@ import net.harawata.appdirs.AppDirsFactory
 
 const val CONFIG_PREFIX = "suwayomi.tachidesk.config"
 
+const val TACHIYOMI = "tachiyomi"
+
 val ApplicationRootDir: String
     get(): String {
         return System.getProperty(
@@ -18,3 +20,5 @@ val ApplicationRootDir: String
             AppDirsFactory.getInstance().getUserDataDir("Tachidesk", null, null)
         )
     }
+
+class UNKNOWN_EXTENSION_SOURCE : Exception("Unknown Extension Source")

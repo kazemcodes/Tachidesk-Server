@@ -11,7 +11,9 @@ rhino = "1.7.14"
 settings = "1.0.0-RC"
 twelvemonkeys = "3.9.4"
 playwright = "1.28.0"
-
+ktor = "2.2.4"
+tinylog = "2.5.0-M2.1"
+datetime = "0.4.0"
 [libraries]
 # Kotlin
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
@@ -127,6 +129,19 @@ twelvemonkeys-imageio-webp = { module = "com.twelvemonkeys.imageio:imageio-webp"
 # Testing
 mockk = "io.mockk:mockk:1.13.2"
 
+
+# dependencies of IReader extensions
+ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-core-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktor-core-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-contentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-contentNegotiation-gson = { module = "io.ktor:ktor-serialization-gson", version.ref = "ktor" }
+ktor-contentNegotiation-kotlinx = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-contentNegotiation-jackson = { module = "io.ktor:ktor-serialization-jackson", version.ref = "ktor" }
+tinylog-impl = { module = "org.tinylog:tinylog-impl", version.ref = "tinylog" }
+tinylog-api = { module = "org.tinylog:tinylog-api", version.ref = "tinylog" }
+kotlin-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
 [plugins]
 # Kotlin
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin"}
@@ -213,4 +228,18 @@ twelvemonkeys = [
     "twelvemonkeys-imageio-metadata",
     "twelvemonkeys-imageio-jpeg",
     "twelvemonkeys-imageio-webp",
+]
+ireader = [
+    "jsoup",
+    "ktor-core",
+    "ktor-core-cio",
+    "ktor-okhttp",
+    "ktor-contentNegotiation",
+    "ktor-contentNegotiation-gson",
+    "ktor-contentNegotiation-kotlinx",
+    "ktor-contentNegotiation-jackson",
+    "ktor-core-android",
+    "tinylog-impl",
+    "tinylog-api",
+    "kotlin-datetime"
 ]

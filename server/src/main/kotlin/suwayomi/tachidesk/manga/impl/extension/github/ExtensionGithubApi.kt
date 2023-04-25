@@ -11,14 +11,22 @@ import org.kodein.di.DI
 import org.kodein.di.conf.global
 import org.kodein.di.instance
 import suwayomi.tachidesk.manga.model.dataclass.ExtensionDataClass
+import xyz.nulldev.ts.config.TACHIYOMI
+import xyz.nulldev.ts.config.UNKNOWN_EXTENSION_SOURCE
 
 object ExtensionGithubApi {
     private val tachiyomiGithubApiManager by DI.global.instance<TachiyomiGithubApiManager>()
-    suspend fun findExtensions(): List<OnlineExtension> {
-        return tachiyomiGithubApiManager.findExtensions()
+    suspend fun findExtensions(type: String = TACHIYOMI): List<OnlineExtension> {
+        return when (type) {
+            TACHIYOMI -> tachiyomiGithubApiManager.findExtensions()
+            else -> throw UNKNOWN_EXTENSION_SOURCE()
+        }
     }
 
-    fun getApkUrl(extension: ExtensionDataClass): String {
-        return tachiyomiGithubApiManager.getApkUrl(extension)
+    fun getApkUrl(extension: ExtensionDataClass, type: String = TACHIYOMI): String {
+        return when (type) {
+            TACHIYOMI -> tachiyomiGithubApiManager.getApkUrl(extension)
+            else -> throw UNKNOWN_EXTENSION_SOURCE()
+        }
     }
 }

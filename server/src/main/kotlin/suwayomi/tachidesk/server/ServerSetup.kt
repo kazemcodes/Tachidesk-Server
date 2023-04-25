@@ -11,6 +11,7 @@ import eu.kanade.tachiyomi.App
 import eu.kanade.tachiyomi.source.local.LocalSource
 import io.javalin.plugin.json.JavalinJackson
 import io.javalin.plugin.json.JsonMapper
+import ireader.core.source.TestSource
 import kotlinx.serialization.json.Json
 import mu.KotlinLogging
 import org.bouncycastle.jce.provider.BouncyCastleProvider
@@ -142,6 +143,7 @@ fun applicationSetup() {
     databaseUp()
 
     LocalSource.register()
+    TestSource().register()
 
     // create system tray
     if (serverConfig.systemTrayEnabled) {

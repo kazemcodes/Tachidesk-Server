@@ -21,6 +21,7 @@ import suwayomi.tachidesk.manga.impl.extension.github.ExtensionGithubApi
 import suwayomi.tachidesk.manga.impl.extension.github.OnlineExtension
 import suwayomi.tachidesk.manga.model.dataclass.ExtensionDataClass
 import suwayomi.tachidesk.manga.model.table.ExtensionTable
+import xyz.nulldev.ts.config.TACHIYOMI
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.time.Duration.Companion.seconds
 
@@ -30,7 +31,7 @@ object ExtensionsList {
     var lastUpdateCheck: Long = 0
     var updateMap = ConcurrentHashMap<String, OnlineExtension>()
 
-    suspend fun getExtensionList(): List<ExtensionDataClass> {
+    suspend fun getExtensionList(type: String = TACHIYOMI): List<ExtensionDataClass> {
         // update if 60 seconds has passed or requested offline and database is empty
         if (lastUpdateCheck + 60.seconds.inWholeMilliseconds < System.currentTimeMillis()) {
             logger.debug("Getting extensions list from the internet")

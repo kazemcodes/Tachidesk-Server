@@ -59,7 +59,8 @@ dependencies {
     // AndroidCompat
     implementation(project(Modules.AndroidCompat))
     implementation(project(Modules.AndroidConfig))
-
+    // dependencies of IReader extensions
+    implementation(libs.bundles.ireader)
 
     // uncomment to test extensions directly
 //    implementation(fileTree("lib/"))
