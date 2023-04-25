@@ -18,6 +18,8 @@ import org.kodein.di.DI
 import org.kodein.di.bind
 import org.kodein.di.conf.global
 import org.kodein.di.singleton
+import suwayomi.tachidesk.manga.impl.extension.TachiyomiExtensionManager
+import suwayomi.tachidesk.manga.impl.extension.github.TachiyomiGithubApiManager
 import suwayomi.tachidesk.manga.impl.update.IUpdater
 import suwayomi.tachidesk.manga.impl.update.Updater
 import suwayomi.tachidesk.manga.impl.util.lang.renameTo
@@ -72,6 +74,8 @@ fun applicationSetup() {
             bind<IUpdater>() with singleton { Updater() }
             bind<JsonMapper>() with singleton { JavalinJackson() }
             bind<Json>() with singleton { Json { ignoreUnknownKeys = true } }
+            bind<TachiyomiExtensionManager>() with singleton { TachiyomiExtensionManager() }
+            bind<TachiyomiGithubApiManager>() with singleton { TachiyomiGithubApiManager() }
         }
     )
 

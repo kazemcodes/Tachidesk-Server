@@ -9,7 +9,6 @@ package suwayomi.tachidesk.manga.controller
 
 import io.javalin.http.HttpCode
 import mu.KotlinLogging
-import suwayomi.tachidesk.manga.impl.extension.Extension
 import suwayomi.tachidesk.manga.impl.extension.ExtensionsList
 import suwayomi.tachidesk.manga.model.dataclass.ExtensionDataClass
 import suwayomi.tachidesk.server.JavalinSetup.future

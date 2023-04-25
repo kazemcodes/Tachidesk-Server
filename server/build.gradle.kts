@@ -57,8 +57,9 @@ dependencies {
     implementation(libs.bouncycastle)
 
     // AndroidCompat
-    implementation(projects.androidCompat)
-    implementation(projects.androidCompat.config)
+    implementation(project(Modules.AndroidCompat))
+    implementation(project(Modules.AndroidConfig))
+
 
     // uncomment to test extensions directly
 //    implementation(fileTree("lib/"))

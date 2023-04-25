@@ -17,7 +17,7 @@ dependencies {
     compileOnly(libs.xmlpull)
 
     // Config API
-    implementation(projects.androidCompat.config)
+    implementation(project(Modules.AndroidConfig))
 
     // APK sig verifier
     compileOnly(libs.apksig)
